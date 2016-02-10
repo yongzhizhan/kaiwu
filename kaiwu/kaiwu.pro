@@ -40,7 +40,8 @@ HEADERS += \
     string_type.h \
     thread.h \
     thread_info.h \
-    thread_pool.h
+    thread_pool.h \
+    memory_buffer.h
 
 SOURCES += \
     count_down_latch.cc \

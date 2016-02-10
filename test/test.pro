@@ -19,5 +19,6 @@ SOURCES += \
     thread_pool_test.cc \
     thread_test.cc \
     main.cc \
-    condition_test.cpp
+    condition_test.cpp \
+    memory_buffer_test.cpp
 

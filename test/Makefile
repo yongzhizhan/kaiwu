@@ -56,7 +56,8 @@ SOURCES       = count_down_latch_test.cc \
 		thread_pool_test.cc \
 		thread_test.cc \
 		main.cc \
-		condition_test.cpp 
+		condition_test.cpp \
+		memory_buffer_test.cpp 
 OBJECTS       = count_down_latch_test.o \
 		file_basename_test.o \
 		file_reader_test.o \
@@ -68,7 +69,8 @@ OBJECTS       = count_down_latch_test.o \
 		thread_pool_test.o \
 		thread_test.o \
 		main.o \
-		condition_test.o
+		condition_test.o \
+		memory_buffer_test.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -367,6 +369,9 @@ condition_test.o: condition_test.cpp ../build/inc/condition.h \
 		../build/inc/thread.h \
 		../build/inc/string_arg.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o condition_test.o condition_test.cpp
+
+memory_buffer_test.o: memory_buffer_test.cpp ../build/inc/memory_buffer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o memory_buffer_test.o memory_buffer_test.cpp
 
 ####### Install
 
