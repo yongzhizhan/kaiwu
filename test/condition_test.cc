@@ -3,7 +3,8 @@
 #include <thread.h>
 #include <mutex.h>
 #include <condition.h>
-//----------------------------------------------------------------------------
+#include <boost/timer.hpp>
+
 class ConditionTest : public testing::Test
 {
 protected:
@@ -30,9 +31,13 @@ private:
     kw::Condition cond_;
     //kw::Thread thread;
 };
-//----------------------------------------------------------------------------
+
+//
 TEST_F(ConditionTest, Default)
 {
+    boost::timer timer;
+    cond_.Wait();
+
 
 }
 //----------------------------------------------------------------------------
