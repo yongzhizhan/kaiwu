@@ -23,7 +23,7 @@ public:
     //char
     StringType(char val)                  {Format("%c", val);}
 
-    inline char* Data(void)             {return buf_;}
+    inline char* Data(void)               {return buf_;}
     inline int   Length(void)             {return size_;}
 
 private:

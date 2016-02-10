@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_QML_DEBUG -DQT_DECLARATIVE_DEBUG
 CFLAGS        = -m64 -pipe -g -Wall -W -fPIE $(DEFINES)
 CXXFLAGS      = -m64 -pipe -g -Wall -W -fPIE $(DEFINES)
-INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../build/inc/
+INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../build/inc
 LINK          = g++
 LFLAGS        = -m64
 LIBS          = $(SUBLIBS) -lgtest -lpthread -L../build/ -lkaiwud-1.0 
@@ -45,8 +45,7 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = condition_test.cc \
-		count_down_latch_test.cc \
+SOURCES       = count_down_latch_test.cc \
 		file_basename_test.cc \
 		file_reader_test.cc \
 		fmt_test.cc \
@@ -56,9 +55,9 @@ SOURCES       = condition_test.cc \
 		singleton_test.cc \
 		thread_pool_test.cc \
 		thread_test.cc \
-		main.cc 
-OBJECTS       = condition_test.o \
-		count_down_latch_test.o \
+		main.cc \
+		condition_test.cpp 
+OBJECTS       = count_down_latch_test.o \
 		file_basename_test.o \
 		file_reader_test.o \
 		fmt_test.o \
@@ -68,7 +67,8 @@ OBJECTS       = condition_test.o \
 		singleton_test.o \
 		thread_pool_test.o \
 		thread_test.o \
-		main.o
+		main.o \
+		condition_test.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -304,41 +304,69 @@ compiler_clean:
 
 ####### Compile
 
-condition_test.o: condition_test.cc 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o condition_test.o condition_test.cc
-
-count_down_latch_test.o: count_down_latch_test.cc 
+count_down_latch_test.o: count_down_latch_test.cc ../build/inc/count_down_latch.h \
+		../build/inc/mutex.h \
+		../build/inc/condition.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o count_down_latch_test.o count_down_latch_test.cc
 
-file_basename_test.o: file_basename_test.cc 
+file_basename_test.o: file_basename_test.cc ../build/inc/file_basename.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o file_basename_test.o file_basename_test.cc
 
-file_reader_test.o: file_reader_test.cc 
+file_reader_test.o: file_reader_test.cc ../build/inc/file_reader.h \
+		../build/inc/string_arg.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o file_reader_test.o file_reader_test.cc
 
-fmt_test.o: fmt_test.cc 
+fmt_test.o: fmt_test.cc ../build/inc/Fmt.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fmt_test.o fmt_test.cc
 
 io_test.o: io_test.cc 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o io_test.o io_test.cc
 
-log_test.o: log_test.cc 
+log_test.o: log_test.cc ../build/inc/log_file.h \
+		../build/inc/mutex.h \
+		../build/inc/string_arg.h \
+		../build/inc/file_appender.h \
+		../build/inc/log.h \
+		../build/inc/shared_lib.h \
+		../build/inc/fmt.h \
+		../build/inc/string_type.h \
+		../build/inc/fixed_buffer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o log_test.o log_test.cc
 
-mutex_test.o: mutex_test.cc 
+mutex_test.o: mutex_test.cc ../build/inc/fmt.h \
+		../build/inc/thread.h \
+		../build/inc/string_arg.h \
+		../build/inc/thread_info.h \
+		../build/inc/shared_lib.h \
+		../build/inc/mutex.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mutex_test.o mutex_test.cc
 
-singleton_test.o: singleton_test.cc 
+singleton_test.o: singleton_test.cc ../build/inc/singleton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o singleton_test.o singleton_test.cc
 
-thread_pool_test.o: thread_pool_test.cc 
+thread_pool_test.o: thread_pool_test.cc ../build/inc/count_down_latch.h \
+		../build/inc/mutex.h \
+		../build/inc/condition.h \
+		../build/inc/thread_pool.h \
+		../build/inc/thread.h \
+		../build/inc/string_arg.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o thread_pool_test.o thread_pool_test.cc
 
-thread_test.o: thread_test.cc 
+thread_test.o: thread_test.cc ../build/inc/thread.h \
+		../build/inc/string_arg.h \
+		../build/inc/thread_info.h \
+		../build/inc/shared_lib.h \
+		../build/inc/fmt.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o thread_test.o thread_test.cc
 
 main.o: main.cc 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cc
+
+condition_test.o: condition_test.cpp ../build/inc/condition.h \
+		../build/inc/mutex.h \
+		../build/inc/thread.h \
+		../build/inc/string_arg.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o condition_test.o condition_test.cpp
 
 ####### Install
 

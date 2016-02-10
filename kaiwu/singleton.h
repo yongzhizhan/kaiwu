@@ -14,18 +14,17 @@ public:
     static T& Instance()
     {
         pthread_once(&once_, &Init);
-        atexit(UnInit);
-
         return *instance_;
     }
 
 protected:
-    //disable new
+    //disable constructor
     Singleton(){}
     ~Singleton(){}
 
     static void Init()
     {
+        atexit(UnInit);
         instance_ = new T();
     }
 

@@ -14,7 +14,7 @@ public:
     SmallFileReader(StringArg path);
     ~SmallFileReader();
 
-    int ToString(std::string* buffer, int max_size);
+    int ToString(std::string* buffer, int size);
 
 private:
     static const int kBufferSize = 64 * 1024;

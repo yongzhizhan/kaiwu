@@ -8,7 +8,6 @@ LIBS += -L../build/ -lkaiwud-1.0
 INCLUDEPATH += ../build/inc/
 
 SOURCES += \
-    condition_test.cc \
     count_down_latch_test.cc \
     file_basename_test.cc \
     file_reader_test.cc \
@@ -19,5 +18,6 @@ SOURCES += \
     singleton_test.cc \
     thread_pool_test.cc \
     thread_test.cc \
-    main.cc
+    main.cc \
+    condition_test.cpp
 

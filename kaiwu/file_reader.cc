@@ -20,24 +20,24 @@ SmallFileReader::~SmallFileReader()
         fclose(fd_);
 }
 //--------------------------------------------------------------------
-int SmallFileReader::ToString(std::string* buffer, int max_size)
+int SmallFileReader::ToString(std::string* buffer, int size)
 {
     assert(0 != buffer);
 
     buffer->clear();
 
-    int size_readed = std::min(max_size, static_cast<int>(sizeof buf_));
+    int size_readed = std::min(size, static_cast<int>(sizeof buf_));
     size_t count = fread(buf_, 1, size_readed, fd_);
     if(0 >= count)
         return 0;
 
-    buffer->reserve(max_size);
+    buffer->reserve(size);
     buffer->insert(buffer->end(), buf_, buf_ + count);
 
     do
     {
-        max_size -= count;
-        size_readed = std::min(max_size, (int)sizeof buf_);
+        size -= count;
+        size_readed = std::min(size, (int)sizeof buf_);
         count = fread(buf_, 1, size_readed, fd_);
         if(0 == count)
             break;

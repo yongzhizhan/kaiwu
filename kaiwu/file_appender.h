@@ -14,6 +14,7 @@ public:
     FileAppender(StringArg file_path);
     ~FileAppender();
 
+    //return error code
     int append(const char* buf, int size);
     void flush();
 

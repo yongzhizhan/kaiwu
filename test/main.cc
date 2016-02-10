@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include <boost/timer.hpp>
 
 int main(int argc, char* argv[])
 {

@@ -11,6 +11,7 @@ class CountDownLatch
 {
 public:
     CountDownLatch(int count);
+
     void Wait();
     bool Wait(const timespec &time);
     void CountDown();
