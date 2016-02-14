@@ -15,8 +15,8 @@ public:
 
     void Append(char* buf, int len)
     {
-        buf_.reserve(buf_.size() + len);
-        memcpy(buf_.data() + buf_.size(), buf, len);
+        buf_.resize(buf_.size() + len);
+        memcpy(buf_.data() + buf_.size() - len, buf, len);
     }
 
     void CopyFrom(char* buf, int len)
@@ -34,7 +34,7 @@ public:
         }
         else if(index > buf_.size())
         {
-            buf_.resize(index + len, 0);
+            buf_.resize(index, 0);
             Append(buf, len);
         }
         else
