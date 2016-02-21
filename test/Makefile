@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = 
 CFLAGS        = -m64 -pipe -g -Wall -W -fPIE $(DEFINES)
 CXXFLAGS      = -m64 -pipe -g -Wall -W -fPIE $(DEFINES)
-INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../build/inc
+INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I../kaiwu
 LINK          = g++
 LFLAGS        = -m64
 LIBS          = $(SUBLIBS) -lgtest -lpthread -L../build/ -lkaiwud-1.0 
@@ -57,7 +57,8 @@ SOURCES       = count_down_latch_test.cc \
 		thread_test.cc \
 		main.cc \
 		condition_test.cpp \
-		memory_buffer_test.cpp 
+		memory_buffer_test.cpp \
+		signal_slot_test.cc 
 OBJECTS       = count_down_latch_test.o \
 		file_basename_test.o \
 		file_reader_test.o \
@@ -70,7 +71,8 @@ OBJECTS       = count_down_latch_test.o \
 		thread_test.o \
 		main.o \
 		condition_test.o \
-		memory_buffer_test.o
+		memory_buffer_test.o \
+		signal_slot_test.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -300,72 +302,80 @@ compiler_clean:
 
 ####### Compile
 
-count_down_latch_test.o: count_down_latch_test.cc ../build/inc/count_down_latch.h \
-		../build/inc/mutex.h \
-		../build/inc/condition.h
+count_down_latch_test.o: count_down_latch_test.cc ../kaiwu/count_down_latch.h \
+		../kaiwu/mutex.h \
+		../kaiwu/condition.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o count_down_latch_test.o count_down_latch_test.cc
 
-file_basename_test.o: file_basename_test.cc ../build/inc/file_basename.h
+file_basename_test.o: file_basename_test.cc ../kaiwu/file_basename.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o file_basename_test.o file_basename_test.cc
 
-file_reader_test.o: file_reader_test.cc ../build/inc/file_reader.h \
-		../build/inc/string_arg.h
+file_reader_test.o: file_reader_test.cc ../kaiwu/file_reader.h \
+		../kaiwu/string_arg.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o file_reader_test.o file_reader_test.cc
 
-fmt_test.o: fmt_test.cc ../build/inc/Fmt.h
+fmt_test.o: fmt_test.cc ../kaiwu/Fmt.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fmt_test.o fmt_test.cc
 
 io_test.o: io_test.cc 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o io_test.o io_test.cc
 
-log_test.o: log_test.cc ../build/inc/log_file.h \
-		../build/inc/mutex.h \
-		../build/inc/string_arg.h \
-		../build/inc/file_appender.h \
-		../build/inc/log.h \
-		../build/inc/shared_lib.h \
-		../build/inc/fmt.h \
-		../build/inc/string_type.h \
-		../build/inc/fixed_buffer.h
+log_test.o: log_test.cc ../kaiwu/log_file.h \
+		../kaiwu/mutex.h \
+		../kaiwu/string_arg.h \
+		../kaiwu/file_appender.h \
+		../kaiwu/log.h \
+		../kaiwu/shared_lib.h \
+		../kaiwu/fmt.h \
+		../kaiwu/string_type.h \
+		../kaiwu/fixed_buffer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o log_test.o log_test.cc
 
-mutex_test.o: mutex_test.cc ../build/inc/fmt.h \
-		../build/inc/thread.h \
-		../build/inc/string_arg.h \
-		../build/inc/thread_info.h \
-		../build/inc/shared_lib.h \
-		../build/inc/mutex.h
+mutex_test.o: mutex_test.cc ../kaiwu/fmt.h \
+		../kaiwu/thread.h \
+		../kaiwu/string_arg.h \
+		../kaiwu/thread_info.h \
+		../kaiwu/shared_lib.h \
+		../kaiwu/mutex.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mutex_test.o mutex_test.cc
 
-singleton_test.o: singleton_test.cc ../build/inc/singleton.h
+singleton_test.o: singleton_test.cc ../kaiwu/singleton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o singleton_test.o singleton_test.cc
 
-thread_pool_test.o: thread_pool_test.cc ../build/inc/count_down_latch.h \
-		../build/inc/mutex.h \
-		../build/inc/condition.h \
-		../build/inc/thread_pool.h \
-		../build/inc/thread.h \
-		../build/inc/string_arg.h
+thread_pool_test.o: thread_pool_test.cc ../kaiwu/count_down_latch.h \
+		../kaiwu/mutex.h \
+		../kaiwu/condition.h \
+		../kaiwu/thread_pool.h \
+		../kaiwu/thread.h \
+		../kaiwu/string_arg.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o thread_pool_test.o thread_pool_test.cc
 
-thread_test.o: thread_test.cc ../build/inc/thread.h \
-		../build/inc/string_arg.h \
-		../build/inc/thread_info.h \
-		../build/inc/shared_lib.h \
-		../build/inc/fmt.h
+thread_test.o: thread_test.cc ../kaiwu/thread.h \
+		../kaiwu/string_arg.h \
+		../kaiwu/thread_info.h \
+		../kaiwu/shared_lib.h \
+		../kaiwu/fmt.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o thread_test.o thread_test.cc
 
 main.o: main.cc 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cc
 
-condition_test.o: condition_test.cpp ../build/inc/condition.h \
-		../build/inc/mutex.h \
-		../build/inc/thread.h \
-		../build/inc/string_arg.h
+condition_test.o: condition_test.cpp ../kaiwu/condition.h \
+		../kaiwu/mutex.h \
+		../kaiwu/thread.h \
+		../kaiwu/string_arg.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o condition_test.o condition_test.cpp
 
-memory_buffer_test.o: memory_buffer_test.cpp ../build/inc/memory_buffer.h
+memory_buffer_test.o: memory_buffer_test.cpp ../kaiwu/memory_buffer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o memory_buffer_test.o memory_buffer_test.cpp
+
+signal_slot_test.o: signal_slot_test.cc ../kaiwu/signal_slot.h \
+		../kaiwu/shared_lib.h \
+		../kaiwu/fmt.h \
+		../kaiwu/mutex.h \
+		../kaiwu/thread.h \
+		../kaiwu/string_arg.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o signal_slot_test.o signal_slot_test.cc
 
 ####### Install
 

@@ -7,6 +7,8 @@
 #include <string.h>
 #include <strings.h>
 #include <assert.h>
+#include <tr1/functional>
+#include <tr1/memory>
 #include "fmt.h"
 //----------------------------------------------------------------------------
 using std::string;
@@ -15,5 +17,12 @@ using std::string;
 #define unlikely(x)     __builtin_expect((x),0)
 #define NSEC2MSEC(nsec) (nsec / 1000000)
 #define MSEC2NSEC(msec) (msec * 1000000)
+
+
+namespace kw{
+    using std::tr1::function;
+    using std::tr1::shared_ptr;
+    using std::tr1::weak_ptr;
+}
 //----------------------------------------------------------------------------
 #endif // SHAREDLIB_H

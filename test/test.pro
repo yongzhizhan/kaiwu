@@ -5,7 +5,7 @@ CONFIG -= qt
 DESTDIR = ../build/
 LIBS += -lgtest -lpthread
 LIBS += -L../build/ -lkaiwud-1.0
-INCLUDEPATH += ../build/inc/
+INCLUDEPATH += ../kaiwu/
 
 SOURCES += \
     count_down_latch_test.cc \
@@ -20,5 +20,6 @@ SOURCES += \
     thread_test.cc \
     main.cc \
     condition_test.cpp \
-    memory_buffer_test.cpp
+    memory_buffer_test.cpp \
+    signal_slot_test.cc
 
