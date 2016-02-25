@@ -16,8 +16,7 @@ using std::string;
 #define likely(x)       __builtin_expect((x),1)
 #define unlikely(x)     __builtin_expect((x),0)
 #define NSEC2MSEC(nsec) (nsec / 1000000)
-#define MSEC2NSEC(msec) (msec * 1000000)
-
+#define MILLISEC2NSEC(msec) (msec * 000000)
 
 namespace kw{
     using std::tr1::function;

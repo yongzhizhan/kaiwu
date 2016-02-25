@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <sys/time.h>
 #include "shared_lib.h"
 #include "thread_pool.h"
 
@@ -74,9 +75,12 @@ void ThreadPool::Loop()
             MutexGuard guard(mutex_);
             if(true == tasks_.empty())
             {
+                timeval daytime;
+                gettimeofday(&daytime, 0);
+
                 timespec time;
-                time.tv_nsec = MSEC2NSEC(100);
-                time.tv_sec = 0;
+                time.tv_sec = daytime.tv_sec + 1;
+                time.tv_nsec = daytime.tv_usec * 1000;
 
                 if(0 != condition_.Wait(time, &mutex_))
                     continue;

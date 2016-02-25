@@ -18,7 +18,7 @@ TEST(ThreadPoolTest, Default)
     kw::ThreadPool thread_pool(5);
     thread_pool.Start();
 
-    int task_count = 10;
+    int task_count = 100;
     for(int i=0; i<task_count; i++)
         thread_pool.Run(task);
 
@@ -34,3 +34,13 @@ TEST(ThreadPoolTest, Default)
 }
 
 
+TEST(ThreadPoolTest, Cpu)
+{
+    kw::ThreadPool thread_pool(1);
+    thread_pool.Start();
+
+    sleep(10);
+
+    //
+    thread_pool.Stop();
+}
