@@ -55,7 +55,7 @@ public:
         buf_.clear();
     }
 
-    char* Data()
+    const char* Data() const
     {
         return buf_.data();
     }
