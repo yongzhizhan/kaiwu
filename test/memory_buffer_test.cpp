@@ -34,3 +34,11 @@ TEST_F(MemoryBufferTest, Insert)
 
     memcmp("123\0\0123\0", buf.Data(), 9);
 }
+
+TEST_F(MemoryBufferTest, Append)
+{
+    kw::MemoryBuffer buf;
+    buf.Append("123");
+    EXPECT_STREQ(buf.Data(), "123");
+    EXPECT_EQ(buf.Length(), 4);
+}

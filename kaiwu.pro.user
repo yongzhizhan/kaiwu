@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 3.5.1, 2016-02-25T14:45:29. -->
+<!-- Written by QtCreator 3.5.1, 2016-03-03T15:17:39. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -246,7 +246,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">test</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/media/psf/Home/Developer/kaiwu/test/test.pro</value>
-    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments">--gtest_filter=*ThreadPoolTest.Cpu *enter*</value>
+    <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments">--gtest_filter=*MemoryBufferTest.Append</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">test/test.pro</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix">false</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseTerminal">true</value>

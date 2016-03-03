@@ -13,7 +13,13 @@ public:
         buf_.reserve(size);
     }
 
-    void Append(char* buf, int len)
+    template<int N>
+    void Append(const char (&ary)[N])
+    {
+        Append(ary, N);
+    }
+
+    void Append(const char* buf, int len)
     {
         buf_.resize(buf_.size() + len);
         memcpy(buf_.data() + buf_.size() - len, buf, len);
