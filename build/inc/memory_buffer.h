@@ -14,15 +14,16 @@ public:
     }
 
     template<int N>
-    void Append(const char (&ary)[N])
+    MemoryBuffer& Append(const char (&ary)[N])
     {
-        Append(ary, N);
+        return Append(ary, N);
     }
 
-    void Append(const char* buf, int len)
+    MemoryBuffer& Append(const char* buf, int len)
     {
         buf_.resize(buf_.size() + len);
         memcpy(buf_.data() + buf_.size() - len, buf, len);
+        return *this;
     }
 
     void CopyFrom(char* buf, int len)

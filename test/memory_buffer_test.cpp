@@ -38,7 +38,7 @@ TEST_F(MemoryBufferTest, Insert)
 TEST_F(MemoryBufferTest, Append)
 {
     kw::MemoryBuffer buf;
-    buf.Append("123");
+    buf.Append("12").Append("3");
     EXPECT_STREQ(buf.Data(), "123");
     EXPECT_EQ(buf.Length(), 4);
 }
