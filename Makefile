@@ -30,54 +30,54 @@ SUBTARGETS    =  \
 
 sub-kaiwu-qmake_all:  FORCE
 	@test -d kaiwu/ || mkdir -p kaiwu/
-	cd kaiwu/ && $(QMAKE) /media/psf/Home/Developer/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile
+	cd kaiwu/ && $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile
 	cd kaiwu/ && $(MAKE) -f Makefile qmake_all
 sub-kaiwu: FORCE
 	@test -d kaiwu/ || mkdir -p kaiwu/
-	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile
+	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile
 sub-kaiwu-make_first: FORCE
 	@test -d kaiwu/ || mkdir -p kaiwu/
-	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile 
+	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile 
 sub-kaiwu-all: FORCE
 	@test -d kaiwu/ || mkdir -p kaiwu/
-	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile all
+	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile all
 sub-kaiwu-clean: FORCE
 	@test -d kaiwu/ || mkdir -p kaiwu/
-	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile clean
+	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile clean
 sub-kaiwu-distclean: FORCE
 	@test -d kaiwu/ || mkdir -p kaiwu/
-	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-kaiwu-install_subtargets: FORCE
 	@test -d kaiwu/ || mkdir -p kaiwu/
-	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile install
+	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile install
 sub-kaiwu-uninstall_subtargets: FORCE
 	@test -d kaiwu/ || mkdir -p kaiwu/
-	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile uninstall
 sub-test-qmake_all:  FORCE
 	@test -d test/ || mkdir -p test/
-	cd test/ && $(QMAKE) /media/psf/Home/Developer/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile
+	cd test/ && $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile
 	cd test/ && $(MAKE) -f Makefile qmake_all
 sub-test: FORCE
 	@test -d test/ || mkdir -p test/
-	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile
+	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile
 sub-test-make_first: FORCE
 	@test -d test/ || mkdir -p test/
-	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile 
+	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile 
 sub-test-all: FORCE
 	@test -d test/ || mkdir -p test/
-	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile all
+	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile all
 sub-test-clean: FORCE
 	@test -d test/ || mkdir -p test/
-	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile clean
+	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile clean
 sub-test-distclean: FORCE
 	@test -d test/ || mkdir -p test/
-	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile distclean
+	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile distclean
 sub-test-install_subtargets: FORCE
 	@test -d test/ || mkdir -p test/
-	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile install
+	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile install
 sub-test-uninstall_subtargets: FORCE
 	@test -d test/ || mkdir -p test/
-	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile uninstall
+	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile uninstall
 
 Makefile: kaiwu.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
@@ -195,10 +195,10 @@ uninstall_subtargets: sub-kaiwu-uninstall_subtargets sub-test-uninstall_subtarge
 
 sub-kaiwu-check:
 	@test -d kaiwu/ || mkdir -p kaiwu/
-	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile check
+	cd kaiwu/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/kaiwu/kaiwu.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile check
 sub-test-check:
 	@test -d test/ || mkdir -p test/
-	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile check
+	cd test/ && ( test -e Makefile || $(QMAKE) /media/psf/Home/Developer/comet/kaiwu/test/test.pro -spec linux-g++-64 CONFIG+=debug -o Makefile ) && $(MAKE) -f Makefile check
 check: sub-kaiwu-check sub-test-check
 install: install_subtargets  FORCE
 
