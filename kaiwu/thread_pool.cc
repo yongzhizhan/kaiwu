@@ -79,7 +79,7 @@ void ThreadPool::Loop()
                 gettimeofday(&daytime, 0);
 
                 timespec time;
-                time.tv_sec = daytime.tv_sec + 1;
+                time.tv_sec = daytime.tv_sec + 10;
                 time.tv_nsec = daytime.tv_usec * 1000;
 
                 if(0 != condition_.Wait(time, &mutex_))
