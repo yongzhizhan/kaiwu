@@ -1,6 +1,7 @@
 #ifndef KW_RESPONSE_BUFFER_H
 #define KW_RESPONSE_BUFFER_H
 
+#include <string.h>
 #include <vector>
 
 namespace kw{
